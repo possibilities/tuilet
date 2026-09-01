@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "fork": "possibilities/opentui",
+  "upstream": "anomalyco/opentui",
+  "checkout": "fork/",
+  "worktrees": "worktrees/",
+  "integrationCommit": "245e2f91fe3bcaa6e1e95e16ada6a11d81152670",
+  "publishedIntegrationCommit": null,
+  "upstreamCommit": "f6673a04ccb671b9207da358c57152bfd27c781f",
+  "capturedAt": "2026-09-01T17:27:57Z"
+}
