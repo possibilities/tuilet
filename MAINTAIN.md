@@ -19,8 +19,10 @@ current upstream every cycle, and consumed through published release tarballs.
 
 - Bound checkout: `fork/`. `origin` is `anomalyco/opentui`; `fork` is
   `possibilities/opentui`. Both were repointed on 2026-09-01: `origin`
-  previously addressed a second local clone at `~/src/opentui`, which the
-  single-copy rule retires.
+  previously addressed a second local clone at `~/src/opentui`. That clone is
+  **retained**: it holds a stash (`WIP on main`, seven `.codex-bun-android-*`
+  FFI probe files) that exists nowhere else. Retire it only once that stash is
+  claimed or discarded by its author.
 - Landed means current `anomalyco/opentui:main` satisfies the inventory entry,
   confirmed by reading and exercising that code.
 
