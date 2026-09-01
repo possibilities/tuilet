@@ -58,6 +58,18 @@ current upstream every cycle, and consumed through published release tarballs.
   checkout. A carry that predates the naming convention is named by ref rather
   than renamed, because renaming a published branch is a publication.
 
+> **A stale check is not a wrong config.** `supervisor.checkout`,
+> multi-valued `supervisor.carryPrefix`, and `supervisor.carryRef` were
+> converged with the maintain script from `~/code/agentguidance`, which is
+> ahead of the rendered copy the entrypoint resolves by default. Until
+> agentguidance is rendered and installed, `--check-supervision` with no
+> `MAINTAIN_SKILL_DIR` override runs the **old** script against the **new**
+> config and fails. That disagreement means the check is stale, never that the
+> config is wrong. **Do not re-converge to make it pass**: the old script
+> writes single-valued keys and knows nothing of `carryRef` or `checkout`, so
+> re-running it would silently destroy the declaration. Verify with
+> `MAINTAIN_SKILL_DIR=~/code/agentguidance/skills/maintain` instead.
+
 ## Features
 
 Integration carries two commits over upstream, both on
