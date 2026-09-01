@@ -34,6 +34,21 @@ current upstream every cycle, and consumed through published release tarballs.
   published**; the fork had no such branch, and consumers bound the carry
   branch directly.
 - Carries: `carry/<feature>`, each merged into Integration.
+- Deletion marker prefix: `DELETEME/`. Creating, moving, or removing
+  `DELETEME/<original-name>` requires an explicit human decision naming that
+  branch. Maintenance never infers deletion from branch age, ownership,
+  request state, or namespace. Every undeclared fork head remains unchanged.
+- Open pull-request heads: validated. Reconciliation confirms the exact head
+  of each currently open request from the fork but does not acquire ownership
+  of the ref.
+- `scripts/reconcile-branches.sh` is this repository's entrypoint to the
+  shared branch script; it declares these values and nothing else.
+- Supervision: `scripts/reconcile-branches.sh --configure-supervision`
+  converges this model into the bound checkout's own `supervisor.*` git
+  config, which is where advisory tools read it — `/tend` judges a worktree
+  against Integration and never proposes removing a carry head's worktree.
+  `--check-supervision` verifies that convergence and that this section still
+  names these branches. The config is derived state, not a second declaration.
 
 ## Features
 
