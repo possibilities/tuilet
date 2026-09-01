@@ -7,10 +7,10 @@ set -euo pipefail
 # the branch names, carry heads under `carry/` — and nothing else; the
 # mechanics are the skill's and are tested there.
 
-skill_dir="${MAINTAIN_SKILL_DIR:-$HOME/.local/share/agentstart/capabilities/packs/common/skills/maintain}"
+skill_dir="${MAINTAIN_SKILL_DIR:-$HOME/.local/share/agentstart/resources/skills/maintain}"
 script="$skill_dir/scripts/reconcile-branches.sh"
 if [ ! -f "$script" ]; then
-    printf 'tuilet branches: the maintain skill is not installed at %s (render ~/code/agentguidance, or set MAINTAIN_SKILL_DIR)\n' \
+    printf 'tuilet branches: the maintain skill is not installed at %s (run ~/code/agentstart/scripts/sync-skills, or set MAINTAIN_SKILL_DIR)\n' \
         "$skill_dir" >&2
     exit 1
 fi
