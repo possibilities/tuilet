@@ -63,6 +63,30 @@ Integration carries two commits over upstream, both on
 **Follow-up (deferred, on request):** assess whether `468989cf` should be sent
 upstream as a pull request, separately from the carry stacked on it.
 
+## Gate
+
+Run verbatim from the candidate worktree:
+
+```sh
+bun install
+bun run lint:ci
+bun run fmt:check
+bun run build
+bun run test
+```
+
+`lint:ci` is `oxlint . --deny-warnings`; `build` compiles the native Zig
+sources the carry touches, so it is not optional even when only TypeScript
+changed. The carry's own surfaces — `packages/native/src/kitty-shared-memory.zig`,
+`terminal.zig`, and the core stdin parser — are covered by that suite.
+
+Publication additionally requires the consumer artifacts: the release tarballs
+named in `agentbrowse/config/opentui-carry.json`, whose `sha256` and bun
+integrity hashes must match what the consumer pins.
+
+**DECISION — unproven.** Read from `package.json` but not yet executed end to
+end. The first cycle must run it and record the result in `SCRATCHPAD.md`.
+
 ## Consumer
 
 agentbrowse, through GitHub release tarballs rather than a git ref:
