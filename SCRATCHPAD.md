@@ -33,8 +33,8 @@ None open. `468989cf` is an offer candidate — see the follow-up in
 - **Consumer pin skew:** `agentbrowse` pins release `agentbrowse-v0.5.8.2`;
   `agentattention` still pins `agentbrowse-v0.5.8.1` for
   `@opentui/core-darwin-arm64`.
-- A second local clone remains at `~/src/opentui`, retained because it holds a
-  stash of `.codex-bun-android-*` FFI probes that exists nowhere else.
+- The `.codex-bun-android-*` FFI-probe stash from the former secondary clone
+  is preserved exactly as `stash@{0}` in `~/source/anomalyco--opentui`.
 - The gate in `MAINTAIN.md` has never been executed.
 
 ## History
